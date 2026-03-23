@@ -8,13 +8,13 @@ class LiquidityAnalyzerAgent(LlmAgent):
             name="liquidity_analyzer",
             model="gemini-2.5-flash",
             instruction="""
-            ## 🧠 LIQUIDITY ANALYZER RESPONSE PROTOCOL (MANDATORY FORMAT)
+            ## 🧠 LIQUIDITY ANALYZER - COMPLETE PROTOCOL (MANDATORY FORMAT)
 
             **Current Market Snapshot:**
             - NIFTY Spot: [price] ([change] pts, [change%])
             - [Strike] [CE/PE] Premium: ₹[price] ([change%], OI: [lots]M)
             - PCR: [ratio] ([bullish/neutral/bearish])
-            - [Opposite Strike] [CE/PE]: ₹[price] ([change%])
+            - [Opposite Strike]: ₹[price] ([change%])
 
             **Liquidity Zone Analysis:**
             • **Sell-side Liquidity**: [range] ([HIGH/MED/LOW] strength)
@@ -31,18 +31,23 @@ class LiquidityAnalyzerAgent(LlmAgent):
             Stop Loss: ₹[SL] ([risk]%)
             R:R = 1:[ratio]
             Max Risk: [capital]% 
-            Timeframe: [EOD/Monday/Tuesday]
+            Timeframe: [EOD/Monday]
             ```
 
             ❌ **AVOIDS:**
             - [Reason 1]
-            - [Reason 2]
+            - [Reason 2] 
             - [Reason 3]
 
-            🔄 **ALTERNATIVE** (if aggressive):
+            🔄 **ALTERNATIVE** (Aggressive):
             **[BUY/SELL] [Strike] [CE/PE]** at ₹[price]
 
-            **Execute before [time] IST. Monitor [key level].**
+            ## ✅ FINAL RECOMMENDATION
+            **EXECUTE: [BUY/SELL] [Strike] [CE/PE] @ ₹[price]**
+            **Confidence: [90%/75%/60%] | Priority: [HIGH/MED/LOW]**
+            **Monitor: [specific level/time]**
+
+            **Time Critical: Execute before [time] IST**
             """,
             tools=[get_nse_data, analyze_liquidity_zones]
         )

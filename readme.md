@@ -712,3 +712,104 @@ Snapshot → Zones → Primary → Avoids → Alternative → **FINAL CALL** ✅
 Copy this final version into your project. Now every response ends with one clear executable line - institutional-grade clarity for live trading.
 
 Deploy ready! python main.py 🚀
+
+
+can we also add a final recommendation in this agent
+Updated Liquidity Analyzer Agent with Final Recommendation
+Yes! Here's the enhanced agent with a crystal-clear FINAL RECOMMENDATION section:
+
+Final agents/liquidity_analyzer.py
+python
+class LiquidityAnalyzerAgent(LlmAgent):
+    def __init__(self):
+        super().__init__(
+            name="liquidity_analyzer",
+            model="gemini-2.5-flash",
+            instruction="""
+            ## 🧠 LIQUIDITY ANALYZER - COMPLETE PROTOCOL (MANDATORY FORMAT)
+
+            **Current Market Snapshot:**
+            - NIFTY Spot: [price] ([change] pts, [change%])
+            - [Strike] [CE/PE] Premium: ₹[price] ([change%], OI: [lots]M)
+            - PCR: [ratio] ([bullish/neutral/bearish])
+            - [Opposite Strike]: ₹[price] ([change%])
+
+            **Liquidity Zone Analysis:**
+            • **Sell-side Liquidity**: [range] ([HIGH/MED/LOW] strength)
+            • **Buy-side Liquidity**: [range] ([HIGH/MED/LOW] strength)
+
+            🎯 **TRADE RECOMMENDATION** [HIGHEST CONVICTION]
+            **[BUY/SELL] [Strike] [CE/PE]**
+
+            **Trade Plan:**
+            ```
+            Entry: ₹[price] current / ₹[ideal] ideal
+            Target 1: ₹[T1] ([profit]%)
+            Target 2: ₹[T2] ([profit]%)
+            Stop Loss: ₹[SL] ([risk]%)
+            R:R = 1:[ratio]
+            Max Risk: [capital]% 
+            Timeframe: [EOD/Monday]
+            ```
+
+            ❌ **AVOIDS:**
+            - [Reason 1]
+            - [Reason 2] 
+            - [Reason 3]
+
+            🔄 **ALTERNATIVE** (Aggressive):
+            **[BUY/SELL] [Strike] [CE/PE]** at ₹[price]
+
+            ## ✅ FINAL RECOMMENDATION
+            **EXECUTE: [BUY/SELL] [Strike] [CE/PE] @ ₹[price]**
+            **Confidence: [90%/75%/60%] | Priority: [HIGH/MED/LOW]**
+            **Monitor: [specific level/time]**
+
+            **Time Critical: Execute before [time] IST**
+            """,
+            tools=[get_nse_data, analyze_liquidity_zones]
+        )
+Sample Output with FINAL RECOMMENDATION
+text
+**Current Market Snapshot:**
+- NIFTY Spot: 23,114.50 (+112 pts, 0.49%)
+- 23100 CE Premium: ₹237.35 (+6.41%, OI: 2.52M)
+- PCR: 1.1 (neutral)
+- 23100 PE: ₹214.50 (-27.86%)
+
+**Liquidity Zone Analysis:**
+• Sell-side: 23,050-23,100 (HIGH)
+• Buy-side: 23,300-23,350 (MEDIUM)
+
+🎯 TRADE RECOMMENDATION [HIGHEST CONVICTION]
+**SELL 23100 CE**
+
+**Trade Plan:**
+Entry: ₹237 current / ₹220-230 ideal
+Target 1: ₹180 (24% profit)
+Target 2: ₹150 (37% profit)
+Stop Loss: ₹270 (14% risk)
+R:R = 1:2.6
+Max Risk: 2% capital
+Timeframe: EOD tomorrow
+
+text
+
+❌ AVOIDS:
+- No 23,250 breakout
+- Monday OPEX crush
+- Weak call volume
+
+🔄 ALTERNATIVE: **BUY 23100 PE** @ ₹214
+
+## ✅ FINAL RECOMMENDATION
+**EXECUTE: SELL 23100 CE @ ₹237**
+**Confidence: 90% | Priority: HIGH**
+**Monitor: Spot 23,100 support break**
+
+**Time Critical: Execute before 9:50 PM IST**
+🎯 Perfect Structure Complete
+text
+Snapshot → Zones → Primary → Avoids → Alternative → **FINAL CALL** ✅
+Copy this final version into your project. Now every response ends with one clear executable line - institutional-grade clarity for live trading.
+
