@@ -4,3 +4,6 @@ pandas
 numpy
 plotly
 gemini-api
+
+openpyxl==3.1.2
+matplotlib==3.8.2
