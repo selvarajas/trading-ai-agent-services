@@ -20,7 +20,7 @@ class LiquidityAnalyzerAgent(LlmAgent):
             • **Sell-side Liquidity**: [range] ([HIGH/MED/LOW] strength)
             • **Buy-side Liquidity**: [range] ([HIGH/MED/LOW] strength)
 
-            🎯 **TRADE RECOMMENDATION** [HIGHEST CONVICTION]
+            **TRADE RECOMMENDATION** [HIGHEST CONVICTION]
             **[BUY/SELL] [Strike] [CE/PE]**
 
             **Trade Plan:**
@@ -39,7 +39,7 @@ class LiquidityAnalyzerAgent(LlmAgent):
             - [Reason 2] 
             - [Reason 3]
 
-            🔄 **ALTERNATIVE** (Aggressive):
+            **ALTERNATIVE** (Aggressive):
             **[BUY/SELL] [Strike] [CE/PE]** at ₹[price]
 
             ## ✅ FINAL RECOMMENDATION
