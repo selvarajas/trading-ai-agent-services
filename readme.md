@@ -813,3 +813,200 @@ text
 Snapshot → Zones → Primary → Avoids → Alternative → **FINAL CALL** ✅
 Copy this final version into your project. Now every response ends with one clear executable line - institutional-grade clarity for live trading.
 
+
+# ------------------------------------------------------------------
+## udate for 3 enhancement
+# ------------------------------------------------------------------
+add a tablet format with +/- of 1000 point of the current spot with recommendation, critical note an highlight as which is a lottery ticket to the above mentioned agent
+Enhanced Liquidity Analyzer Agent with Tablet Format & Lottery Detection
+Updated agents/liquidity_analyzer.py Instruction Block
+
+python
+instruction="""
+## 🧠 LIQUIDITY ANALYZER - ENHANCED PROTOCOL (MANDATORY FORMAT)
+
+**Current Market Snapshot:**
+- NIFTY Spot: [price] ([change] pts, [change%])
+- [Strike] [CE/PE] Premium: ₹[price] ([change%], OI: [lots]M)
+- PCR: [ratio] ([bullish/neutral/bearish])
+
+**Liquidity Zone Analysis:**
+• Sell-side: [range] ([HIGH/MED/LOW])
+• Buy-side: [range] ([HIGH/MED/LOW])
+
+**📊 SPOT ±1000 PTS STRIKE TABLE**
+| Strike | Distance | CE Prem | PE Prem | Reco | Status |
+|--------|----------|---------|---------|------|---------|
+| [spot-1000] | -1000 | ₹[ce] | ₹[pe] | [BUY/SELL] | **LOTTERY** |
+| [spot-500]  | -500  | ₹[ce] | ₹[pe] | [BUY/SELL] | Viable |
+| [spot]      | ATM    | ₹[ce] | ₹[pe] | [BUY/SELL] | **PRIME** |
+| [spot+500]  | +500   | ₹[ce] | ₹[pe] | [BUY/SELL] | Viable |
+| [spot+1000] | +1000  | ₹[ce] | ₹[pe] | [SELL] | **LOTTERY** |
+
+🎯 **TRADE RECOMMENDATION** [HIGHEST CONVICTION]
+**[BUY/SELL] [Strike] [CE/PE]**
+
+**Trade Plan:** [standard plan]
+
+❌ **AVOIDS:** [list]
+🔄 **ALTERNATIVE:** [option]
+
+## ✅ FINAL RECOMMENDATION
+**EXECUTE: [BUY/SELL] [Strike] [CE/PE] @ ₹[price]**
+**Confidence: [90%] | Priority: [HIGH]**
+
+**⚠️ CRITICAL NOTE:** [analysis + LOTTERY TICKET highlight]
+"""
+Sample Output: NIFTY 24200 CE Analysis
+text
+**Current Market Snapshot:**
+- NIFTY Spot: 23,146 (+92 pts, 0.40%)
+- 24200 CE Premium: ₹9.30 (-30%, OI: 4.02M)
+- PCR: 1.15 (slightly bullish)
+
+**Liquidity Zone Analysis:**
+• Sell-side: 23,050-23,100 (HIGH)
+• Buy-side: 23,300-23,350 (MEDIUM)
+
+**📊 SPOT ±1000 PTS STRIKE TABLE**
+| Strike  | Distance | CE Prem | PE Prem | Reco  | Status      |
+|---------|----------|---------|---------|-------|-------------|
+| 22146   | -1000    | ₹1.2    | ₹1250   | **SELL** | **LOTTERY** ← PE viable |
+| 23146   | -500     | ₹45     | ₹320    | **BUY**  | **PRIME**  ← Best CE |
+| **23146** | **ATM**  | **₹180** | **₹214**| **SELL** | **PRIME** |
+| 24146   | +500     | ₹12.5   | ₹45     | **SELL** | Viable     |
+| **24200**| **+1054**| **₹9.3** | ₹955   | **SELL** | **LOTTERY** ← Pure decay |
+
+🎯 **TRADE RECOMMENDATION** [HIGHEST CONVICTION]
+**SELL 24200 CE** ❌ **LOTTERY TICKET**
+
+**Trade Plan:**
+Entry: ₹9.30 current / ₹8-9 ideal
+Target 1: ₹6.50 (30% profit)
+Target 2: ₹4.50 (52% profit)
+Stop Loss: ₹12 (29% risk)
+R:R = 1:3.2
+Max Risk: 1.5% capital
+Timeframe: EOD Monday
+
+text
+
+❌ **AVOIDS:**
+- **1054 pts DEEP OTM** = lottery ticket
+- **OI unwinding** = trapped buyers  
+- **91% theta decay probability**
+
+🔄 **ALTERNATIVE:** **BUY 23146 CE @ ₹180** (500 pts closer)
+
+## ✅ FINAL RECOMMENDATION
+**EXECUTE: BUY 23146 CE @ ₹180**  
+**Confidence: 88% | Priority: HIGH** ← **TABLE PRIME**
+
+**⚠️ CRITICAL NOTE:** 
+**24200 CE = LOTTERY TICKET** (1054 pts OTM, ₹9.3 premium)
+**AVOID completely.** Go for **23146 CE** (ATM range, ₹180 viable premium).
+🎯 Key Enhancements Added:
+📊 Strike Table ±1000 pts from spot
+
+Status Column marks LOTTERY/PRIME/VIABLE
+
+Critical Note highlights lottery tickets
+
+Table-driven decisions = institutional grade
+
+Replace your agent instruction with this. Now it auto-detects lottery tickets and recommends optimal strikes! 🚀
+--------------------------------
+#4 Enhacement added
+--------------------------------
+
+Enhanced Liquidity Analyzer Agent with COMPREHENSIVE STRIKE COMPARISON TABLE
+Updated Agent Instruction (Copy to agents/liquidity_analyzer.py)
+python
+instruction="""
+## 🧠 LIQUIDITY ANALYZER - PRODUCTION PROTOCOL
+
+**Current Market Snapshot:**
+- NIFTY Spot: [price]
+- Target Strike(s): [list]
+- PCR: [ratio]
+
+**📊 COMPREHENSIVE STRIKE COMPARISON TABLE**
+| Metric | [Strike1 CE] | [Strike1 PE] | [Strike2 CE] | [Strike2 PE] | ...
+|--------|--------------|--------------|--------------|--------------| ...
+| Distance | [pts] | [pts] | [pts] | [pts] | ...
+| Premium | ₹[p] | ₹[p] | ₹[p] | ₹[p] | ...
+| OI | [M] | [M] | [M] | [M] | ...
+| Delta | [0.xx] | [0.xx] | [0.xx] | [0.xx] | ...
+| Theta/Day | -₹[x] | -₹[x] | -₹[x] | -₹[x] | ...
+| **Status** | **🏆PRIME** | **Prime** | **💸LOTTERY** | **LOTTERY** | ...
+
+**Liquidity Zones:**
+• Sell-side: [range] (strength)
+• Buy-side: [range] (strength)
+
+**Individual Analysis:** [per strike]
+
+## ✅ FINAL RANKING & RECOMMENDATION
+| Rank | Option | Action | Return | Risk |
+|------|--------|--------|--------|------|
+| 1 | **23000 CE** | **BUY** | **+52%** | LOW |
+
+**EXECUTE: [primary trade]**
+**Time Critical: [time]**
+"""
+Sample Output: 23000 vs 24200 Comparison
+text
+**Current Market Snapshot:**
+- NIFTY Spot: 23,146
+- Strikes: 23000 & 24200
+- PCR: 1.15
+
+**📊 COMPREHENSIVE STRIKE COMPARISON TABLE**
+| Metric           | **23000 CE** | **23000 PE** | **24200 CE** | **24200 PE** |
+|------------------|--------------|--------------|--------------|--------------|
+| **Distance**     | **-146 ITM** | **+146 OTM** | **+1054 OTM**| **-1054 ITM**|
+| **Premium**      | **₹296**     | **₹174**     | **₹9.3**     | **₹1082**    |
+| **OI (lots)**    | **2.71M**    | **6.33M**    | **4.02M**    | **152K**     |
+| **Delta**        | **0.65**     | **0.35**     | **0.02**     | **0.98**     |
+| **Theta/Day**    | **-₹12**     | **-₹8**      | **-₹0.5**    | **-₹25**     |
+| **Liquidity Fit**| **Excellent**| **Good**     | **Poor**     | **Poor**     |
+| **Status**       | **🏆 PRIME**  | **Prime**    | **💸 LOTTERY**| **💸 LOTTERY**|
+
+**Liquidity Zones:**
+• Sell-side: 23,050-23,100 (HIGH)
+• Buy-side: 23,300-23,350 (MEDIUM)
+
+**23000 CE**: BUY @ ₹296 → T1 ₹380 (28%) | R:R 1:2.8
+**23000 PE**: SELL @ ₹174 → T1 ₹130 (25%) | R:R 1:2.5
+**24200 CE**: SELL @ ₹9.3 → T1 ₹6.5 (30%) | LOTTERY
+**24200 PE**: SELL @ ₹1082 → T1 ₹850 (21%) | LOTTERY
+
+## ✅ FINAL RANKING & RECOMMENDATION
+| Rank | **Option**    | **Action** | **Expected Return** | **Risk** |
+|------|---------------|------------|---------------------|----------|
+| **1** | **23000 CE**  | **BUY**    | **+52%**            | **LOW**  |
+| **2** | **23000 PE**  | **SELL**   | **+42%**            | **LOW**  |
+| **3** | **24200 CE**  | **SELL**   | **+52%**            | **MED**  |
+| **4** | **24200 PE**  | **SELL**   | **+35%**            | **HIGH** |
+
+**EXECUTE: BUY 23000 CE @ ₹296**
+**Confidence: 90% | Priority: HIGH**
+**Time Critical: Before 9:15 AM Monday**
+🎯 AGENT READY!
+Copy the updated instruction block above into your liquidity_analyzer.py.
+
+New Features:
+
+✅ COMPREHENSIVE STRIKE COMPARISON TABLE (multi-strike analysis)
+
+✅ Greeks + Liquidity Fit columns
+
+✅ Status badges (🏆 PRIME / 💸 LOTTERY)
+
+✅ Final Ranking Table
+
+✅ Production formatting
+
+Deploy now: python main.py "Compare 23000 vs 24200 options"
+
+Perfect for institutional trading desks! 📈🚀
